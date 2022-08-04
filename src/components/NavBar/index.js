@@ -14,6 +14,7 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import NearMeIcon from "@mui/icons-material/NearMe";
 import { Autocomplete } from "@react-google-maps/api";
+import { useNavigate } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -55,6 +56,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function NavBar({ setCoordinates }) {
+  const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -67,6 +69,18 @@ export default function NavBar({ setCoordinates }) {
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
+  };
+
+  const handleMenuProfile = () => {
+    setAnchorEl(null);
+    handleMobileMenuClose();
+    navigate("/update-profile");
+  };
+
+  const handleMenuLogout = () => {
+    setAnchorEl(null);
+    handleMobileMenuClose();
+    navigate("/signin");
   };
 
   const handleMenuClose = () => {
@@ -95,8 +109,8 @@ export default function NavBar({ setCoordinates }) {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuProfile}>Profile</MenuItem>
+      <MenuItem onClick={handleMenuLogout}>Logout</MenuItem>
     </Menu>
   );
 

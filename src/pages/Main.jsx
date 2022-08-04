@@ -3,9 +3,33 @@ import { CssBaseline, Grid } from "@mui/material";
 
 import List from "components/List";
 import Map from "components/Map";
-import PlaceDetails from "components/PlaceDetails";
 import NavBar from "components/NavBar";
 import { getPlacesData } from "services/api";
+import Link from "@mui/material/Link";
+import Typography from "@mui/material/Typography";
+import { useAuth } from "../contexts/AuthContext";
+import { Navigate } from "react-router-dom";
+
+function Copyright(props) {
+  const { currentUser } = useAuth();
+  return !currentUser ? (
+    <Navigate to="/signin" replace />
+  ) : (
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      {"Copyright © "}
+      <Link color="inherit" href="https://mui.com/">
+        Rifqi Ahmad Fauzi
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
+}
 
 export default function Main() {
   const [places, setPlaces] = React.useState([]);
@@ -65,6 +89,7 @@ export default function Main() {
           />
         </Grid>
       </Grid>
+      <Copyright sx={{ mt: 8, mb: 4 }} />
     </>
   );
 }

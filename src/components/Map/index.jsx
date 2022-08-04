@@ -1,7 +1,6 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
-import { Typography, Paper, useMediaQuery, Rating, Card } from "@mui/material";
-import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+import { Paper, useMediaQuery, Card } from "@mui/material";
 import EmojiFoodBeverageIcon from "@mui/icons-material/EmojiFoodBeverage";
 import AttractionsIcon from "@mui/icons-material/Attractions";
 import HotelIcon from "@mui/icons-material/Hotel";

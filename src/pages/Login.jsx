@@ -24,7 +24,7 @@ function Copyright(props) {
     >
       {"Copyright © "}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        Rifqi Ahmad Fauzi
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}

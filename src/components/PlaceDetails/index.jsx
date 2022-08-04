@@ -2,7 +2,6 @@ import React from "react";
 import {
   Box,
   Typography,
-  Button,
   Card,
   CardMedia,
   CardContent,
@@ -10,23 +9,14 @@ import {
   Chip,
   Rating,
 } from "@mui/material";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import PhoneIcon from "@mui/icons-material/Phone";
-import BookmarksIcon from "@mui/icons-material/Bookmarks";
 import BookmarkAddIcon from "@mui/icons-material/BookmarkAdd";
-import BookmarkIcon from "@mui/icons-material/Bookmark";
 import Divider from "@mui/material/Divider";
 
 import { styled } from "@mui/material/styles";
 import CardHeader from "@mui/material/CardHeader";
 import Collapse from "@mui/material/Collapse";
-import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
-import { red } from "@mui/material/colors";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;

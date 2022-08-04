@@ -13,6 +13,8 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
+import { useAuth } from "../contexts/AuthContext";
+
 function Copyright(props) {
   return (
     <Typography
@@ -23,7 +25,7 @@ function Copyright(props) {
     >
       {"Copyright © "}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        Rifqi Ahmad Fauzi
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
