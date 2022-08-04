@@ -2,7 +2,32 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
+import Typography from "@mui/material/Typography";
+import MUILink from "@mui/material/Link";
+import { Navigate } from "react-router-dom";
 
+function Copyright(props) {
+  const { currentUser } = useAuth();
+
+  return currentUser ? (
+    <Navigate to="/" />
+  ) : (
+    <Typography
+      fontFamily={"poppins"}
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      {"Copyright © "}
+      <MUILink color="inherit" href="https://mui.com/">
+        Rifqi Ahmad Fauzi
+      </MUILink>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
+}
 export default function Signin() {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -32,6 +57,10 @@ export default function Signin() {
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Log In</h2>
+          <p className="text-center mb-2">Dummy Email: test@gmail.com</p>
+          <p className="text-center mb-4">Dummy Password: test1234</p>
+          <p className="text-center mb-4">Fitur Sign Up bisa digunakan</p>
+
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
@@ -54,6 +83,7 @@ export default function Signin() {
       <div className="w-100 text-center mt-2">
         Need an account? <Link to="/signup">Sign Up</Link>
       </div>
+      <Copyright sx={{ mt: 8, mb: 4 }} />
     </>
   );
 }

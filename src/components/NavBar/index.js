@@ -15,6 +15,7 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import NearMeIcon from "@mui/icons-material/NearMe";
 import { Autocomplete } from "@react-google-maps/api";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "contexts/AuthContext";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -56,6 +57,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function NavBar({ setCoordinates }) {
+  const { logout } = useAuth();
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -78,6 +80,7 @@ export default function NavBar({ setCoordinates }) {
   };
 
   const handleMenuLogout = () => {
+    logout();
     setAnchorEl(null);
     handleMobileMenuClose();
     navigate("/signin");

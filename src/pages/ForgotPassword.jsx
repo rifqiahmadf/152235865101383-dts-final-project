@@ -2,7 +2,27 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link } from "react-router-dom";
+import Typography from "@mui/material/Typography";
+import MUILink from "@mui/material/Link";
 
+function Copyright(props) {
+  return (
+    <Typography
+      fontFamily={"poppins"}
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      {"Copyright © "}
+      <MUILink color="inherit" href="https://mui.com/">
+        Rifqi Ahmad Fauzi
+      </MUILink>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
+}
 export default function ForgotPassword() {
   const emailRef = useRef();
   const { resetPassword } = useAuth();
@@ -50,6 +70,7 @@ export default function ForgotPassword() {
       <div className="w-100 text-center mt-2">
         Need an account? <Link to="/signup">Sign Up</Link>
       </div>
+      <Copyright sx={{ mt: 8, mb: 4 }} />
     </>
   );
 }
